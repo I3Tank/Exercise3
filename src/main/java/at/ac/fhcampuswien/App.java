@@ -38,18 +38,16 @@ public class App {
         }
     }
 
-    //TODO Frage: erster wert stimmt, dann gibt es abweichung, warum?
-    public static long[] lcg(int seed) {
+    public static long[] lcg(long seed) {
         long[] randomNumbersArray = new long[10];
-        double m = Math.pow(2,31);
+        long m = (long) Math.pow(2,31);
         int a = 1103515245;
         int c = 12345;
-        double randomNumber = 0;
-        //double randomNumber = (a * seed + c) % m;
+        long randomNumber = seed;
 
         for(int k = 0; k < 10; k++) {
-            randomNumber = ((a * randomNumber) + c) % m;
-            randomNumbersArray[k] = (long) randomNumber;
+            randomNumber = (((a * randomNumber) + c) % m);
+            randomNumbersArray[k] = randomNumber;
         }
         return randomNumbersArray;
     }
